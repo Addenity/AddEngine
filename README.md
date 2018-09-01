@@ -1,18 +1,22 @@
 # AddEngine (Addenity Engine AKA ADE)
 
 ## Functionality
-  1. Tile Map
+  1. EngineUtilies
+      * HexLoop
+      * 2D Vectors
+      * Linear Algebra
+  2. Tile Map
       * Function TileMap(2dArray){
               // Converts 2dArray to Hexadecimals and loops through with bitwise logic
               // Write in a file ex: map.txt
         }
-  2. Rendering
+  3. Rendering
       * Graphics
       * Counter/Timer
         * Physics
       * Collision
       * Audio (Last priority)
-  3. Controller
+  4. Controller
       * Configuration possibilities to have access to exclusive controls
       
 ## Goal
