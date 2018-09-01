@@ -1,7 +1,14 @@
 /*jshint esversion: 6 */
 
 function Rendering() {
-
+    /**Does stuff
+     * @param  {} x
+     * @param  {} y
+     * @param  {} width
+     * @param  {} height
+     * @param  {} rectangleStyle
+     * @param  {} borderStyle
+     */
     this.RenderRectangle = function (x, y, width, height, rectangleStyle, borderStyle) {
         Graphics.DrawRectangle(x, y, width, height,rectangleStyle);
         if (borderStyle) {
