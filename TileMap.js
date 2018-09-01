@@ -1,10 +1,14 @@
 import { Utils } from '/Utils.js';
-// Takes a 2dArray in 0 and 1
-// convert 0 and 1's into hexadecimal values
+
+// Takes a 1d Array in 0 and 1
 // format it into 4x4 chunks
+// convert chunks into hexadecimal values
 
 
 var TileMap = {
+    /** Calculates the horizontal and vertical chunks
+     * @param  {number} units takes x or y units and converts them into 4x4 chunks
+     */
     calculateChunks: function(units){
         var chunks;
         // Check if it's possible to divide by 4
@@ -22,15 +26,16 @@ var TileMap = {
         }
         return chunks;
     },
+    /** Creates a hex map, rows are the vertical chunks and cols are the horizontal chunks 
+     * @param  {binary array} mapArr     Takes a 1d binary array
+     * @param  {number}       xUnits     Takes an integer to convert it into horizontal chunks
+     * @param  {number}       yUnits     Takes an integer to convert it into vertical chunks 
+     */
     createMap: function(mapArr, xUnits, yUnits){
-        // First check how many xChunks and yChunks
-        // Want to rework this simply because maybe 
-        // there's a smarter work around
         var xChunks = TileMap.calculateChunks(xUnits);
         var yChunks = TileMap.calculateChunks(yUnits); 
-        console.log(xChunks + ' : ' +  yChunks);
+        // console.log(xChunks + ' : ' +  yChunks);
         // Separate the arr into chunks using xChunks/yChunks
-        //var map = [];
         var hexMap = [...Array(yChunks)].map(e => Array(xChunks));
         for(var k=0; k<yChunks; k++){
             for(var i=0; i<xChunks; i++){
@@ -54,14 +59,13 @@ var TileMap = {
                         break;
                     }
                 }
-                //map.push(tempArr);
                 hexMap[k][i] = parseInt(tempArr.toString().split(',').join(''), 2).toString(16);
             }
         }
         console.log(hexMap);
     }
 }
-
+/* Use this for testing purposes
 var bigArr =[1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0
 ,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0
 ,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0
@@ -76,5 +80,6 @@ var bigArr =[1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0
 ,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 
 TileMap.createMap(bigArr, 16, 12);
+*/
 
 export { TileMap };
