@@ -22,22 +22,18 @@ var TileMap = {
         console.log(xChunks + ' : ' +  yChunks);
         // Separate the arr into chunks using xChunks/yChunks
         var map = [];
-        // TODO Make the yChunks work now
         for(var k=0; k<yChunks; k++){
             for(var i=0; i<xChunks; i++){
                 var tempArr = [];
-                var row = 0;
-                for(var j=(i*4); j<mapArr.length; j++){
+                var row = k*4;
+                for(var j=(i*4)+(row*xChunks*4); j<mapArr.length; j++){
                     tempArr.push(mapArr[j]);
-                    console.log(j);
-                    // Trying to make it match every 4th unit of the 4x4 jump a row
                     if(j==((row)*(xChunks*4))+((i*4)+3)){
                         console.log(j + ' : Reached border');
                         row++;
-                        console.log(row + ' * ' + xChunks + ' * 4');
                         j = ((row*xChunks*4+(i*4))-1); 
                     } 
-                    if (row==4){
+                    if (row==((k+1)*4)){
                         break;
                     }
                 }
