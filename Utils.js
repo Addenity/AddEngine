@@ -10,10 +10,6 @@ var Utils = {
                 callback(x, y);
             }
         }
-    },
-
-    myFunction: function(){
-        console.log('Modules Workerino!');
     }
 }
 
