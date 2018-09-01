@@ -12,6 +12,9 @@
         }
   3. Rendering
       * Graphics
+        * Console
+        * Web
+        * Software
       * Counter/Timer
         * Physics
       * Collision
